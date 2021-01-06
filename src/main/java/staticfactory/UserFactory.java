@@ -1,3 +1,5 @@
+package staticfactory;
+
 public class UserFactory {
 
     public static User manufactureUser(UserType type) throws Exception {

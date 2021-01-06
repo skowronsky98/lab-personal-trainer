@@ -1,4 +1,8 @@
 import org.junit.jupiter.api.Test;
+import staticfactory.Mentee;
+import staticfactory.Trainer;
+import staticfactory.UserFactory;
+import staticfactory.UserType;
 
 import static org.junit.jupiter.api.Assertions.*;
 
