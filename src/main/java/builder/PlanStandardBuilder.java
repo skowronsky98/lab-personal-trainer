@@ -5,7 +5,7 @@ import plan.MealPlan;
 
 import java.util.List;
 
-public class PlanBuilder implements Builder{
+public class PlanStandardBuilder implements Builder{
     private List<WeekPlan> weekPlans;
     private List<DailyPlan> dailyPlans;
     private List<MealPlan> mealPlans;
@@ -13,9 +13,12 @@ public class PlanBuilder implements Builder{
 
     Plan plan = new Plan();
 
+    public PlanStandardBuilder() {
+    }
+
     @Override
-    public void setPlanType(PlanType planType) {
-        this.planType = planType;
+    public void setPlanType() {
+        this.planType = PlanType.STANDARD;
     }
 
     @Override
@@ -33,7 +36,8 @@ public class PlanBuilder implements Builder{
         this.mealPlans = mealPlans;
     }
 
-    public Plan getResult(){
+    @Override
+    public Plan build(){
         return new Plan(weekPlans,dailyPlans,mealPlans,planType);
     }
 }

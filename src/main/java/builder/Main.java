@@ -9,18 +9,21 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
+
         ArrayList<WeekPlan> weekPlans = new ArrayList<>(Arrays.asList(new WeekPlan(),new WeekPlan()));
         ArrayList<DailyPlan> dailyPlans = new ArrayList<>(Arrays.asList(new DailyPlan()));
         ArrayList<MealPlan> mealPlans = new ArrayList<>(Arrays.asList(new MealPlan()));
 
-        PlanBuilder planBuilder = new PlanBuilder();
-        planBuilder.setMealPlan(mealPlans);
-        planBuilder.setDailyPlan(dailyPlans);
-        planBuilder.setWeekPlan(weekPlans);
-        planBuilder.setPlanType(PlanType.PREMIUM);
+        Director director = new Director();
 
-        Plan plan = planBuilder.getResult();
+        Builder planStandardBuilder = new PlanStandardBuilder();
+        Plan plan = director.constructStandardPlan(planStandardBuilder);
 
         System.out.println(plan.getPlanType());
+
+
+
+
+
     }
 }

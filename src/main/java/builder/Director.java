@@ -7,17 +7,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Director {
-    public void constructStandardPlan(Builder builder){
-        builder.setPlanType(PlanType.STANDARD);
+    public Plan constructStandardPlan(Builder builder){
+        builder.setPlanType();
         builder.setMealPlan(new ArrayList<>(Arrays.asList(new MealPlan())));
         builder.setDailyPlan(new ArrayList<>(Arrays.asList(new DailyPlan())));
         builder.setWeekPlan(new ArrayList<>(Arrays.asList(new WeekPlan(),new WeekPlan())));
+        return builder.build();
     }
 
-    public void constructPremiumPlan(Builder builder){
-        builder.setPlanType(PlanType.PREMIUM);
+    public Plan constructPremiumPlan(Builder builder){
+        builder.setPlanType();
         builder.setMealPlan(new ArrayList<>(Arrays.asList(new MealPlan())));
         builder.setDailyPlan(new ArrayList<>(Arrays.asList(new DailyPlan())));
         builder.setWeekPlan(new ArrayList<>(Arrays.asList(new WeekPlan(),new WeekPlan(), new WeekPlan())));
+        return builder.build();
     }
 }
