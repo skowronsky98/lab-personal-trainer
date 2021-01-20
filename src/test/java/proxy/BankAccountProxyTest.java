@@ -9,8 +9,7 @@ class BankAccountProxyTest {
     @Test
     void sameInstane(){
         BankAccount bankAccount = new BankAccount();
-        BillingReports billingReports = new BillingReports();
-        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount,billingReports);
+        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount);
         bankAccountProxy.sendMoney(100d);
         assertEquals(bankAccount.viewBalance(),bankAccountProxy.viewBalance());
     }
@@ -26,19 +25,11 @@ class BankAccountProxyTest {
     @Test
     void billingHistory(){
         BankAccount bankAccount = new BankAccount();
-        BillingReports billingReports = new BillingReports();
-        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount,billingReports);
+        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount);
         Double price = 100d;
         bankAccountProxy.sendMoney(price);
-        assertTrue(billingReports.getBillingHistory().contains(price));
+        assertTrue(bankAccountProxy.getBillingReports().contains(price));
     }
 
-    @Test
-    void billingHistoryFalse(){
-        BankAccount bankAccount = new BankAccount();
-        BillingReports billingReports = new BillingReports();
-        Double price = 100d;
-        bankAccount.sendMoney(price);
-        assertFalse(billingReports.getBillingHistory().contains(price));
-    }
+
 }

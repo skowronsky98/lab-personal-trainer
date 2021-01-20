@@ -3,8 +3,7 @@ package proxy;
 public class Main {
     public static void main(String[] args) {
         BankAccount bankAccount = new BankAccount();
-        BillingReports billingReports = new BillingReports();
-        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount,billingReports);
+        BankAccountProxy bankAccountProxy = new BankAccountProxy(bankAccount);
 
         System.out.println("Balance Directly: "+bankAccount.viewBalance());
         bankAccount.sendMoney(100d);
@@ -14,6 +13,6 @@ public class Main {
         bankAccountProxy.sendMoney(100d);
         System.out.println("Ballace via Proxy after sending: "+bankAccountProxy.viewBalance());
         System.out.println("Billing history:");
-        billingReports.getBillingHistory().forEach(System.out::println);
+
     }
 }
