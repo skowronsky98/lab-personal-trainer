@@ -1,11 +1,10 @@
 package proxy;
 
-import java.util.List;
-
 public class BankAccountProxy implements Payment {
 
     private BankAccount bankAccount;
     private BillingReports billingReports;
+    private String balance;
 
     public BankAccountProxy(BankAccount bankAccount, BillingReports billingReports) {
         this.bankAccount = bankAccount;
@@ -20,7 +19,9 @@ public class BankAccountProxy implements Payment {
 
     @Override
     public String viewBalance() {
-        return bankAccount.viewBalance();
+        if(balance.isEmpty())
+            balance =  bankAccount.viewBalance();
+        return balance;
     }
 
 }
